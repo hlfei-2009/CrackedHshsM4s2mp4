@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    android:versionCode="202610"
+    android:versionName="1.5.1-removed ads and supported landscape display, dark theme-hlfei cracked-1"
+    android:compileSdkVersion="29"
+    android:compileSdkVersionCodename="10"
+    package="com.lqw.m4s2mp4"
+    platformBuildVersionCode="29"
+    platformBuildVersionName="10">
+
+    <!-- 最低 SDK 为 Android 5，目标 SDK 为 Android 10 -->
+    <uses-sdk
+        android:minSdkVersion="21"
+        android:targetSdkVersion="29" />
+
+    <!-- 修改或删除您共享存储空间中的内容，用于保存此应用处理好的文件 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <!-- 防止手机休眠，用于提升此应用处理文件的稳定性 -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <!-- 读取您共享存储空间中的内容，用于选择文件 -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:theme="@style/AppThemeWelcome"
+        android:label="@string/app_name"
+        android:icon="@mipmap/about_logo"
+        android:name=".MainApplication"
+        android:supportsRtl="true"
+        android:appCategory="productivity"
+        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+        android:requestLegacyExternalStorage="true">
+        <meta-data
+            android:name="android.notch_support"
+            android:value="true" />
+        <meta-data
+            android:name="android.max_aspect"
+            android:value="2.34" />
+        <meta-data
+            android:name="notch.config"
+            android:value="portrait|landscape" />
+
+        <!-- 主界面 -->
+        <activity
+            android:name=".activity.main.AppMainActivity"
+            android:launchMode="singleTask"
+            android:configChanges="layoutDirection|smallestScreenSize|screenSize|screenLayout|orientation|navigation|keyboardHidden" />
+
+        <!-- 开屏页 -->
+        <activity
+            android:name=".activity.LauncherActivity"
+            android:configChanges="layoutDirection|smallestScreenSize|screenSize|screenLayout|orientation|navigation|keyboardHidden">
+
+            <!-- 在主屏幕上显示此应用，允许直接打开 -->
+            <intent-filter>
+                <action
+                    android:name="android.intent.action.MAIN" />
+                <category
+                    android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".activity.detail.EditDetailActivity"
+            android:configChanges="layoutDirection|smallestScreenSize|screenSize|screenLayout|orientation|navigation|keyboardHidden" />
+
+        <!-- “使用问题反馈”页 -->
+        <activity
+            android:name=".activity.setting.FeedbackActivity"
+            android:configChanges="layoutDirection|smallestScreenSize|screenSize|screenLayout|orientation|navigation|keyboardHidden" />
+
+        <!-- “关于”页 -->
+        <activity
+            android:name=".activity.setting.AboutActivity"
+            android:configChanges="layoutDirection|smallestScreenSize|screenSize|screenLayout|orientation|navigation|keyboardHidden" />
+
+        <!-- 当此应用的 存储空间 权限被拒绝后，用于在开屏请求权限 -->
+        <activity
+            android:theme="@style/AppTheme"
+            android:name=".perm.PermActivity"
+            android:launchMode="singleTask" />
+
+        <!-- “良心应用推荐”页 -->
+        <activity
+            android:name="com.lqw.apprecommend.AppRecommendActivity"
+            android:configChanges="layoutDirection|smallestScreenSize|screenSize|screenLayout|orientation|navigation|keyboardHidden" />
+
+        <!-- 《用户协议》《隐私政策》和《免责声明》页 -->
+        <activity
+            android:name="com.lqw.common.activity.PrivacyActivity"
+            android:configChanges="layoutDirection|screenSize|orientation|navigation|keyboardHidden" />
+
+        <!-- 文件选择 (从内部存储选择) 页 -->
+        <activity
+            android:theme="@style/FilePicker.Elec"
+            android:label="@string/elec_title"
+            android:name="com.ess.filepicker.activity.SelectFileByBrowserActivity"
+            android:configChanges="layoutDirection|smallestScreenSize|screenSize|screenLayout|orientation|navigation|keyboardHidden" />
+
+        <!-- 文件选择 (从媒体库选择) 页 -->
+        <activity
+            android:theme="@style/FilePicker.Elec"
+            android:label="@string/elec_title"
+            android:name="com.ess.filepicker.activity.SelectFileByScanActivity"
+            android:configChanges="layoutDirection|smallestScreenSize|screenSize|screenLayout|orientation|navigation|keyboardHidden" />
+
+        <!-- 用于打开设备上的 DocumentsUI (文件) 应用 -->
+        <activity
+            android:theme="@style/nl_MainActivityTheme"
+            android:name="nl.marc_apps.files.MainActivity" />
+
+        <!-- 当无法打开 DocumentsUI (文件) 应用时显示错误信息 -->
+        <activity
+            android:theme="@style/ErrorActivityTheme"
+            android:name="nl.marc_apps.files.ErrorActivity" />
+
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+    </application>
+</manifest>
